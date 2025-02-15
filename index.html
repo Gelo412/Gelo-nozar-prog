@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@ s<!DOCTYPE html>
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(school.png);
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(images/school.png);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -30,22 +30,20 @@ s<!DOCTYPE html>
             cursor: pointer;
             
         }
-        p {
-            font-size: 16px;
-            color: #fff;
-            margin-bottom: 20px;
+        .nav-buttons {
+            display: flex;
+            transition: all 0.3s ease-in-out;
         }
-       .nav-buttons a {
+        .nav-buttons button, .container button {
             color: #fff;
-            background: none;
-            text-decoration: none;
+            background: none; 
+            border: none; 
             font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
-            margin: 0 10px; 
         }
 
-        .nav-buttons a:hover {
+        .nav-buttons button:hover{  
             color: #007bff; 
         }
         .container {
@@ -72,6 +70,14 @@ s<!DOCTYPE html>
         }
         .container button:hover {
             background: #219150;
+        }
+        p {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+         .Concern{
+            color: #219150;
         }
         img{
             max-width: 50px;
@@ -148,21 +154,22 @@ s<!DOCTYPE html>
 <body>
     <div class="navbar">
         <header>
-            <span><img src="logo.png"></span>
+            <span><img src="images/logo.png"></span>
             <div class="nav-title">ICCT Colleges Registrar Queueing System (Antipolo Campus)</div>
+            
         </header>
         <span class="menu-icon" onclick="toggleMenu()">☰</span>
         <div class="nav-buttons" id="navMenu">
-            <a href="#" onclick="monitor()">Monitor</a>
-            <a href="/REGISTRAR_LoginForm.html">Admin</a>
-            <a href="#" onclick="about()">About</a>
+            <button onclick="monitor()">Monitor</button>
+            <button onclick="adminLogin()">Admin</button>
+            <button onclick="about()">about</button>
         </div>
     </div>
     <div class="container">
         <h1>Welcome to ICCT Colleges Registrar Queueing System (Antipolo Campus)</h1>
         <p>Manage your concern efficiently and avoid long waiting times. What are you waiting for!</p>
         <p>Click the button below to proceed: </p>
-        <button onclick="concern()">Concern</button>
+        <button id="Concern" onclick="concern()">Concern</button>
     </div>
 
     <script>
@@ -173,6 +180,8 @@ s<!DOCTYPE html>
         function monitor() {
             alert("Monitoring system not implemented yet.");
         }
+        function adminLogin() {
+            window.location.href = "REGISTRAR_LoginForm.html";
         }
         function concern() {
             alert("Concern system not implemented yet.");
