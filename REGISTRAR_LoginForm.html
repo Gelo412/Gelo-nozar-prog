@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(images/school.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%; 
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            color: white;
+            box-sizing: border-box;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        input::placeholder {
+            color: #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #219150;
+        }
+        #error-msg {
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-form">
+        <h2>Admin Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="error-msg"></p>
+        <p>Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+    </div>
+
+    <div class="container" id="register-form" style="display: none;">
+        <h2>Admin Registration</h2>
+        <input type="text" id="reg-username" placeholder="Username">
+        <input type="password" id="reg-password" placeholder="Password">
+        <input type="password" id="reg-confirm-password" placeholder="Confirm Password">
+        <button onclick="register()">Register</button>
+        <p id="reg-error-msg"></p>
+        <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+    </div>
+
+    <script>
+        function toggleForm() {
+            document.getElementById("login-form").style.display = 
+                document.getElementById("login-form").style.display === "none" ? "block" : "none";
+            document.getElementById("register-form").style.display = 
+                document.getElementById("register-form").style.display === "none" ? "block" : "none";
+        }
+
+        function login() {
+            var username = document.getElementById("login-username").value;
+            var password = document.getElementById("login-password").value;
+            var errorMsg = document.getElementById("error-msg");
+
+            if (username === "admin" && password === "admin123") {
+                alert("Login successful!");
+                window.location.href = "dashboard.html";
+            } else {
+                errorMsg.innerText = "Invalid username or password";
+            }
+        }
+
+        function register() {
+            var username = document.getElementById("reg-username").value;
+            var password = document.getElementById("reg-password").value;
+            var confirmPassword = document.getElementById("reg-confirm-password").value;
+            var errorMsg = document.getElementById("reg-error-msg");
+
+            if (username === "" || password === "" || confirmPassword === "") {
+                errorMsg.innerText = "All fields are required";
+                return;
+            }
+            if (password !== confirmPassword) {
+                errorMsg.innerText = "Passwords do not match";
+                return;
+            }
+            alert("Registration successful!");
+            toggleForm();
+        }
+    </script>
+</body>
+</html>
