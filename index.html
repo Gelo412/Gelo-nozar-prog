@@ -35,20 +35,17 @@
             color: #fff;
             margin-bottom: 20px;
         }
-        .nav-buttons {
-            display: flex;
-            transition: all 0.3s ease-in-out;
-        }
-        .nav-buttons button, .container button {
+       .nav-buttons a {
             color: #fff;
-            background: none; 
-            border: none; 
+            background: none;
+            text-decoration: none;
             font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
+            margin: 0 10px; 
         }
 
-        .nav-buttons button:hover, .container button:hover {  
+        .nav-buttons a:hover {
             color: #007bff; 
         }
         .container {
@@ -156,9 +153,9 @@
         </header>
         <span class="menu-icon" onclick="toggleMenu()">☰</span>
         <div class="nav-buttons" id="navMenu">
-            <button onclick="monitor()">Monitor</button>
-            <button onclick="adminLogin()">Admin</button>
-            <button onclick="about()">About</button>
+            <a href="#" onclick="monitor()">Monitor</a>
+            <a href="REGISTRAR_Admin.html">Admin</a>
+            <a href="#" onclick="about()">About</a>
         </div>
     </div>
     <div class="container">
