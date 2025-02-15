@@ -39,18 +39,17 @@
             display: flex;
             transition: all 0.3s ease-in-out;
         }
-        .nav-buttons button {
-            padding: 10px 15px;
-            margin-left: 10px;
-            background: #2980b9;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        .nav-buttons button, .container button {
+            color: #fff;
+            background: none; 
+            border: none; 
+            font-size: 16px;
             cursor: pointer;
-            font-size: 14px;
+            transition: 0.3s;
         }
-        .nav-buttons button:hover {
-            background: #1f6690;
+
+        .nav-buttons button:hover, .container button:hover {  
+            color: #007bff; 
         }
         .container {
             display: flex;
@@ -159,6 +158,7 @@
         <div class="nav-buttons" id="navMenu">
             <button onclick="monitor()">Monitor</button>
             <button onclick="adminLogin()">Admin</button>
+            <button onclick="about()">about</button>
         </div>
     </div>
     <div class="container">
